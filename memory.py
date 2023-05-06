@@ -1,5 +1,5 @@
-import numberzz
 import wordzz
+import numberzz
 import random
 import os
 import time
@@ -15,16 +15,18 @@ def choices():
     types = input("Choose either 'Words or 'Numbers' \n")
     types = types.lower()
     if (types == 'numbers'):
-        choices.num_numbers = int(input("Enter how many digits to recall: \n"))
         numberzz.num_question()
         numberzz.num_answer() 
     elif (types == 'words'):
+        wordzz.question_word()
+        wordzz.answer_word()
+        '''
         choice = input("Choose either 'Level' or 'Specific' \n")
         if (choice == "level"):
             choice = choice.lower()
             level = input("Enter Level # Low / Medium / Hard \n")
             if (level == 'low'):
-                choices.num_words = 5
+                wordzz.question_word.num_words = 5
                 wordzz.question_word()
                 wordzz.answer_word()
             elif (level == 'medium'):
@@ -51,6 +53,7 @@ def choices():
             elif (continues == "n"):
                 print("The program will terminate...")
                 sys.exit()
+                '''
     else:
         print("You gave an invalid choice.")
         choices()

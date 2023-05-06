@@ -2,7 +2,6 @@ import random
 import time
 import os
 import sys
-import memory
 
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -11,9 +10,11 @@ def num_question():
     print("You have to recall them in the correct order. \n")
     time.sleep(5)
     os.system('clear')
+
+    num_question.num_numbers = int(input("Enter how many digits to recall: \n"))
     num_question.answer_digits = []
 
-    for number in range(0, memory.choices.num_numbers):
+    for number in range(0, num_question.num_numbers):
         random_digit = random.randint(0, len(numbers) - 1)
         print(f"Digit[{number + 1}]: {numbers[random_digit]}")
         time.sleep(1)
@@ -45,6 +46,7 @@ def num_answer():
     def continues_num():
         continues = input(f"Type 'Y' if you want to start over or 'N' if you want to terminate the program. \n")
         continues = continues.lower()
+        '''
         if (continues == 'y'):
             memory.choices()
         elif (continues == 'n'):
@@ -52,4 +54,5 @@ def num_answer():
         else:
             print(f"You gave an invalid entry. \n")
             continues_num()
+        '''
     continues_num()

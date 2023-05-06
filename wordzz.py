@@ -2,7 +2,6 @@ import random
 import time
 import os
 import sys
-import memory
 
 f = open('words.txt', 'r')
 content = f.read()
@@ -10,13 +9,39 @@ content = f.read()
 words = content.split("\n")
 
 def question_word():
+    choice = input("Choose either 'Level' or 'Specific' \n")
+    if (choice == "level"):
+        choice = choice.lower()
+        level = input("Enter Level # Low / Medium / Hard \n")
+        if (level == 'low'):
+            question_word.num_words = 5
+        elif (level == 'medium'):
+            question_word.num_words = 10
+        elif (level == 'hard'):
+            question_word.num_words = 20
+        else:
+            print(f"Invalid entry.")
+    elif (choice == 'specific'):
+        choice = choice.lower()
+        question_word.num_words = int(input("Enter how many words to recall: \n"))
+    else:
+        print(f"Invalid entry.")
+        '''
+        continues = input("Type 'Y' to give another option or 'N' to terminate \n")
+        continues = continues.lower()
+        if (continues == "y"):
+            memory.choices()
+        elif (continues == "n"):
+            print("The program will terminate...")
+            sys.exit()
+        '''
     print("After 5 seconds, you will see a list of random words. \n")
     print("You have to recall them in the correct order. \n")
     time.sleep(5)
     os.system('clear')
     question_word.answer_words = []
         
-    for word in range(0, memory.choices.num_words):
+    for word in range(0, question_word.num_words):
         random_word = random.randint(0, len(words))
         print(f"Word[{word + 1}]: {words[random_word]}")
         time.sleep(1)
@@ -40,6 +65,7 @@ def answer_word():
             print(f"Wrong (-1): The word was: {question_word.answer_words[answer]}")
             score = score - 1
         print(f"Your total score: {score}")
+    ''' 
     def continues_word():
         continues = input(f"Type 'Y' if you want to start over or 'N' if you want to terminate the program. \n")
         continues = continues.lower()
@@ -51,5 +77,6 @@ def answer_word():
             print(f"You gave an invalid entry. \n")
             continues_word()
     continues_word()
+    '''
 
 f.close()
