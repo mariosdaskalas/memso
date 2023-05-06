@@ -6,12 +6,13 @@ import sys
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 def num_question():
-    print("After 5 seconds, you will see a list of random digits. \n")
+
+    num_question.num_numbers = int(input("Enter how many digits to recall: \n"))
+    print(f"After 5 seconds, you will see a list of {num_question.num_numbers} random digits. \n")
     print("You have to recall them in the correct order. \n")
     time.sleep(5)
     os.system('clear')
-
-    num_question.num_numbers = int(input("Enter how many digits to recall: \n"))
+    
     num_question.answer_digits = []
 
     for number in range(0, num_question.num_numbers):
@@ -46,13 +47,12 @@ def num_answer():
     def continues_num():
         continues = input(f"Type 'Y' if you want to start over or 'N' if you want to terminate the program. \n")
         continues = continues.lower()
-        '''
         if (continues == 'y'):
-            memory.choices()
+            num_question()
+            num_answer()
+            statistics()
         elif (continues == 'n'):
             sys.exit()
         else:
-            print(f"You gave an invalid entry. \n")
             continues_num()
-        '''
     continues_num()

@@ -2,7 +2,7 @@ import random
 import time
 import os
 import sys
-import memory
+import main
 
 # Numberzz
 
@@ -15,7 +15,7 @@ def num_question():
     os.system('clear')
     num_question.answer_digits = []
 
-    for number in range(0, memory.choices.num_numbers):
+    for number in range(0, main.choices.num_numbers):
         random_digit = random.randint(0, len(numbers) - 1)
         print(f"Digit[{number + 1}]: {numbers[random_digit]}")
         time.sleep(1)
@@ -48,7 +48,7 @@ def num_answer():
         continues = input(f"Type 'Y' if you want to start over or 'N' if you want to terminate the program. \n")
         continues = continues.lower()
         if (continues == 'y'):
-            memory.choices()
+            main.choices()
         elif (continues == 'n'):
             sys.exit()
         else:
@@ -70,7 +70,7 @@ def question_word():
     os.system('clear')
     question_word.answer_words = []
         
-    for word in range(0, memory.choices.num_words):
+    for word in range(0, main.choices.num_words):
         random_word = random.randint(0, len(words))
         print(f"Word[{word + 1}]: {words[random_word]}")
         time.sleep(1)
@@ -98,7 +98,7 @@ def answer_word():
         continues = input(f"Type 'Y' if you want to start over or 'N' if you want to terminate the program. \n")
         continues = continues.lower()
         if (continues == 'y'):
-            memory.choices()
+            main.choices()
         elif (continues == 'n'):
             sys.exit()
         else:

@@ -21,21 +21,16 @@ def question_word():
             question_word.num_words = 20
         else:
             print(f"Invalid entry.")
+            question_word()
+            answer_word()
     elif (choice == 'specific'):
         choice = choice.lower()
         question_word.num_words = int(input("Enter how many words to recall: \n"))
     else:
         print(f"Invalid entry.")
-        '''
-        continues = input("Type 'Y' to give another option or 'N' to terminate \n")
-        continues = continues.lower()
-        if (continues == "y"):
-            memory.choices()
-        elif (continues == "n"):
-            print("The program will terminate...")
-            sys.exit()
-        '''
-    print("After 5 seconds, you will see a list of random words. \n")
+        question_word()
+        answer_word()
+    print(f"After 5 seconds, you will see a list of {question_word.num_words} random words. \n")
     print("You have to recall them in the correct order. \n")
     time.sleep(5)
     os.system('clear')
@@ -65,18 +60,17 @@ def answer_word():
             print(f"Wrong (-1): The word was: {question_word.answer_words[answer]}")
             score = score - 1
         print(f"Your total score: {score}")
-    ''' 
+    
     def continues_word():
         continues = input(f"Type 'Y' if you want to start over or 'N' if you want to terminate the program. \n")
         continues = continues.lower()
         if (continues == 'y'):
-            memory.choices()
+            question_word()
+            answer_word()
         elif (continues == 'n'):
             sys.exit()
         else:
-            print(f"You gave an invalid entry. \n")
             continues_word()
     continues_word()
-    '''
 
 f.close()
