@@ -5,9 +5,8 @@ import os
 import time
 import sys
 import logo
-from termcolor import colored
 
-print(colored(logo.memso, 'red'))
+print(logo.memso)
 
 print("Welcome to the Memory Game: MEMSO \n")
 
