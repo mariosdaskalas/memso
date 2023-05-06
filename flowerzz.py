@@ -3,7 +3,7 @@ import time
 import os
 import sys
 
-f = open('words.txt', 'r')
+f = open('flowers.txt', 'r')
 content = f.read()
 
 words = content.split("\n")
@@ -25,12 +25,12 @@ def question_word():
             answer_word()
     elif (choice == 'specific'):
         choice = choice.lower()
-        question_word.num_words = int(input("Enter how many words to recall: \n"))
+        question_word.num_words = int(input("Enter how many flowers to recall: \n"))
     else:
         print(f"Invalid entry.")
         question_word()
         answer_word()
-    print(f"After 5 seconds, you will see a list of {question_word.num_words} random words. \n")
+    print(f"After 5 seconds, you will see a list of {question_word.num_words} random flowers. \n")
     print("You have to recall them in the correct order. \n")
     time.sleep(5)
     os.system('clear')
@@ -44,20 +44,20 @@ def question_word():
 
         question_word.answer_words.append(words[random_word])
     os.system('clear')
-    print("Time to recall the words in order: \n")
+    print("Time to recall the flowers in order: \n")
 
 def answer_word():
     score = 0
 
     for answer in range(0, len(question_word.answer_words)):
-        userAnswer = input(f"Please type the {answer + 1} word: \n")
+        userAnswer = input(f"Please type the {answer + 1} flower: \n")
         userAnswer = userAnswer.lower()
         os.system('clear')
         if (userAnswer == question_word.answer_words[answer].lower()):
             print(f"Correct (+1)")
             score = score + 1
         else:
-            print(f"Wrong (-1): The word was: {question_word.answer_words[answer]}")
+            print(f"Wrong (-1): The flower was: {question_word.answer_words[answer]}")
             score = score - 1
         print(f"Your total score: {score}")
     
