@@ -7,6 +7,6 @@ MEMSO is a command-line Python program that tests the memory of the individual i
 
 It can be run using the following command.
 
-'''python
+```python
 python3 main.py
-'''
+```
