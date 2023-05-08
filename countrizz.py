@@ -3,7 +3,7 @@ import time
 import os
 import sys
 
-f = open('countries.txt', 'r')
+f = open('files/countries.txt', 'r')
 content = f.read()
 
 words = content.split("\n")
