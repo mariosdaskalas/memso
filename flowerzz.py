@@ -37,7 +37,7 @@ def question_word():
     question_word.answer_words = []
         
     for word in range(0, question_word.num_words):
-        random_word = random.randint(0, len(words))
+        random_word = random.randint(0, len(words) - 1)
         print(f"Word[{word + 1}]: {words[random_word]}")
         time.sleep(1)
         os.system('clear')
